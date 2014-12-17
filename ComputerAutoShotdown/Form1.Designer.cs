@@ -46,6 +46,7 @@
             this.settingsButton.Size = new System.Drawing.Size(23, 23);
             this.settingsButton.TabIndex = 0;
             this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // hours
             // 
@@ -61,6 +62,8 @@
             this.hours.TabIndex = 1;
             this.hours.Text = "17";
             this.hours.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.hours.TextChanged += new System.EventHandler(this.hours_TextChanged);
+            this.hours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextboxKeyPressed);
             // 
             // minutes
             // 
@@ -76,6 +79,8 @@
             this.minutes.TabIndex = 2;
             this.minutes.Text = "25";
             this.minutes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.minutes.TextChanged += new System.EventHandler(this.hours_TextChanged);
+            this.minutes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextboxKeyPressed);
             // 
             // textBox4
             // 
@@ -94,6 +99,7 @@
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 38);
@@ -105,8 +111,7 @@
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::ComputerAutoShotdown.Properties.Resources.shutdown;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -116,13 +121,15 @@
             this.Controls.Add(this.minutes);
             this.Controls.Add(this.hours);
             this.Controls.Add(this.settingsButton);
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1000, 700);
             this.MinimumSize = new System.Drawing.Size(500, 300);
             this.Name = "MainWindow";
-            this.Text = "Auto shut down the computer © Artem Shevchenko";
-            this.TransparencyKey = System.Drawing.Color.Transparent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Auto shutdown the computer © Artem Shevchenko";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
